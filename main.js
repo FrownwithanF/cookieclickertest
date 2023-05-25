@@ -1247,8 +1247,8 @@ if (!App && !Game.local && window.location.href.indexOf('orteil.dashnet.org')!=-
 
 Game.Bing=function()
 {
-	Game.Notify(loc('Bing chilling'),loc('because god is dead'),[23,0])
-	PlaySound('snd/bing.mp3')
+	Game.Notify(loc('Bing chilling'),loc('because god is dead'),[23,0]);
+	PlaySound('snd/bing.mp3');
 }
 
 Game.Launch=function()
