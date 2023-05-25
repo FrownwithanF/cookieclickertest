@@ -1305,6 +1305,12 @@ Game.Ad2=function()
 		Game.Ad();
 	}
 }
+Game.PickRandom2 = function() {
+	var randomNumber = Math.floor(Math.random() * 10) + 1;
+	if (randomNumber === 1) {
+	  Game.Ad2();
+	}
+}  
 Game.PickRandom = function() {
 	var randomNumber = Math.floor(Math.random() * 4) + 1;
 	if (randomNumber === 1) {
@@ -1346,6 +1352,7 @@ Game.Launch=function()
 		preloadImagesL.appendChild(img);
 	}
 	setInterval(Game.PickRandom, 30000);
+	setInterval(Game.PickRandom2, 20000);
 	Game.visible=true;
 	AddEvent(document,'visibilitychange',function(e){if (document.visibilityState==='hidden') Game.visible=false; else Game.visible=true;});
 	
@@ -12666,7 +12673,6 @@ Game.Launch=function()
 		
 		Game.Win=function(what)
 		{
-			Game.RandomSound();
 			if (typeof what==='string')
 			{
 				if (Game.Achievements[what])
@@ -12676,6 +12682,7 @@ Game.Launch=function()
 					{
 						var name=it.shortName?it.shortName:it.dname;
 						it.won=1;
+						Game.RandomSound();
 						Game.Notify(loc("Achievement unlocked"),'<div class="title" style="font-size:18px;margin-top:-2px;">'+name+'</div>',it.icon);
 						Game.NotifyTooltip('function(){return Game.crateTooltip(Game.AchievementsById['+it.id+']);}');
 						if (Game.CountsAsAchievementOwned(it.pool)) Game.AchievementsOwned++;
