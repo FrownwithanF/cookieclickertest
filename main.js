@@ -1293,7 +1293,11 @@ Game.Ad=function()
 }
 Game.Ad2=function()
 {
-	for (var i = 0; i < 5; i++) {
+	var fortune = Game.goldenClicks
+	if (fortune > 5) {
+		fortune = 5
+	}
+	for (var i = 0; i < fortune*5; i++) {
 		Game.Ad();
 	}
 }
