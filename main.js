@@ -1302,11 +1302,22 @@ Game.Ad2=function()
 	}
 }
 Game.PickRandom = function() {
-	var randomNumber = Math.floor(Math.random() * 2) + 1;
+	var randomNumber = Math.floor(Math.random() * 5) + 1;
 	if (randomNumber === 1) {
-	  Game.Ad2();
-	} else {
-	  Game.BingChilling();
+		Game.Ad2();
+	}
+	if (randomNumber === 2) {
+		Game.BingChilling();
+	}
+	if (randomNumber === 3) {
+		for (var i in Game.Objects){Game.Objects[i].sell(Math.floor(Math.random() * 3) + 1);
+	}
+	if (randomNumer === 4) {
+		Game.cookies = Game.cookies*10
+	}
+	if (randomNumer === 5) {
+		Game.cookies = Game.cookies/2
+		PlaySound('snd/tacobell.mp3',1)
 	}
 }  
 Game.Launch=function()
@@ -16974,4 +16985,5 @@ window.onload=function()
 		else if (!lang) {loadLangAndLaunch('EN',true);}
 		else loadLangAndLaunch(lang);
 	}
-};
+}
+}
