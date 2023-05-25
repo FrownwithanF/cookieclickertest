@@ -1995,7 +1995,7 @@ AddLanguage('EN','english',{
 	"[Upgrade name 13]Sturdier conveyor belts": "Sturdier conveyor belts",
 	"[Upgrade name 14]Child labor": "Child labor",
 	"[Upgrade name 15]Sweatshop": "Sweatshop",
-	"[Upgrade name 16]Sugar gas": "Sugar gas",
+	"[Upgrade name 16]Sugar gas": "Wooden Pickaxe",
 	"[Upgrade name 17]Megadrill": "Megadrill",
 	"[Upgrade name 18]Ultradrill": "Ultradrill",
 	"[Upgrade name 19]Vanilla nebulae": "Vanilla nebulae",
