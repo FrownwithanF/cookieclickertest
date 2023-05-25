@@ -1251,7 +1251,6 @@ Game.BingChilling=function()
 
 Game.Launch=function()
 {
-	setInterval(Game.BingChilling, 30000);
 	Game.mobile=0;
 	Game.touchEvents=0;
 	//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) Game.mobile=1;
@@ -1292,6 +1291,8 @@ Game.Launch=function()
 		'';
 		document.head.appendChild(css);
 	}
+
+	setInterval(Game.BingChilling, 30000);
 	
 	Game.baseSeason='';//halloween, christmas, valentines, fools, easter
 	//automatic season detection (might not be 100% accurate)
