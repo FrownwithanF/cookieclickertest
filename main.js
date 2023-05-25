@@ -1274,7 +1274,8 @@ Game.Ad=function()
 		'ad/bad.png': true,
 		'ad/lettuce.png': true,
 		'ad/bake.png': true,
-		'ad/smiley.png': true
+		'ad/smiley.png': true,
+		'ad/meme.png': true,
 	  };
 	  
 	  var images = Object.keys(table);
