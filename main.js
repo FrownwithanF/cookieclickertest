@@ -1276,6 +1276,11 @@ Game.Ad=function()
 		'ad/bake.png': true,
 		'ad/smiley.png': true,
 		'ad/meme.png': true,
+		'ad/bp.png': true,
+		'ad/doubt.png': true,
+		'ad/jellybeanskull.png': true,
+		'ad/skull.png': true,
+		'ad/mikeohearn.png': true,
 	  };
 	  
 	  var images = Object.keys(table);
