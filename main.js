@@ -1302,6 +1302,9 @@ Game.Ad2=function()
 	if (fortune > 5) {
 		fortune = 5
 	}
+	if (fortune = 0) {
+		fortune = 1
+	}
 	for (var i = 0; i < fortune*5; i++) {
 		Game.Ad();
 	}
