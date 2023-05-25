@@ -1248,10 +1248,28 @@ Game.BingChilling=function()
 	Game.Notify(loc('Bing chilling'), loc('Because god is dead'),[23,0]);
 	PlaySound('snd/bing.mp3',1)
 }
+Game.RandomSound=function()
+{
+	var table = {
+		'snd/laugh.mp3': true,
+		'snd/fart.mp3': true,
+		'snd/horn.mp3': true,
+		'snd/augh.mp3': true,
+		'snd/discord.mp3': true,
+		'snd/breakingbad.mp3': true,
+		'snd/tacobell.mp3': true,
+	  };
+	  
+	  var sounds = Object.keys(table);
+	  var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+	  PlaySound(randomSound,1)
+}
 Game.Ad=function()
 {
 	var table = {
 		'ad/bad.png': true,
+		'ad/lettuce.png': true,
+		'ad/bake.png': true,
 		'ad/smiley.png': true
 	  };
 	  
@@ -7892,7 +7910,7 @@ Game.Launch=function()
 						success=1;
 					}
 				}
-				if (success) {PlaySound('snd/buy'+choose([1,2,3,4])+'.mp3',0.75);this.refresh();}
+				if (success) {PlaySound('snd/anime.mp3',0.75);this.refresh();}
 				//if (moni>0 && amount>1) Game.Notify(this.name,'Bought <b>'+bought+'</b> for '+Beautify(moni)+' cookies','',2);
 			}
 			this.sell=function(amount,bypass)
@@ -9605,7 +9623,7 @@ Game.Launch=function()
 						if (Game.CountsAsUpgradeOwned(this.pool)) Game.UpgradesOwned++;
 						Game.setOnCrate(0);
 						Game.tooltip.hide();
-						PlaySound('snd/buy'+choose([1,2,3,4])+'.mp3',0.75);
+						PlaySound('snd/anime.mp3',0.75);
 						success=1;
 					}
 				}
@@ -9620,7 +9638,7 @@ Game.Launch=function()
 						this.bought=1;
 						if (this.buyFunction) this.buyFunction();
 						Game.BuildAscendTree(this);
-						PlaySound('snd/buy'+choose([1,2,3,4])+'.mp3',0.75);
+						PlaySound('snd/anime.mp3',0.75);
 						PlaySound('snd/shimmerClick.mp3');
 						//PlaySound('snd/buyHeavenly.mp3');
 						success=1;
@@ -12642,6 +12660,7 @@ Game.Launch=function()
 					{
 						var name=it.shortName?it.shortName:it.dname;
 						it.won=1;
+						Game.RandomSound();
 						Game.Notify(loc("Achievement unlocked"),'<div class="title" style="font-size:18px;margin-top:-2px;">'+name+'</div>',it.icon);
 						Game.NotifyTooltip('function(){return Game.crateTooltip(Game.AchievementsById['+it.id+']);}');
 						if (Game.CountsAsAchievementOwned(it.pool)) Game.AchievementsOwned++;
