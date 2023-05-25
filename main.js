@@ -1319,10 +1319,6 @@ Game.PickRandom = function() {
 	  }
 	}
 	if (randomNumber === 4) {
-	  Game.cookies = Game.cookies * 10;
-	}
-	if (randomNumber === 5) {
-	  Game.cookies = Game.cookies / 2;
 	  PlaySound('snd/vine.mp3',1);
 	}
 };  
