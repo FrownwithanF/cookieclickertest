@@ -1248,7 +1248,45 @@ Game.BingChilling=function()
 	Game.Notify(loc('Bing chilling'), loc('Because god is dead'),[23,0]);
 	PlaySound('snd/bing.mp3',1)
 }
-
+Game.Ad=function()
+{
+	var table = {
+		'ad/bad.png': true,
+		'ad/smiley.png': true
+	  };
+	  
+	  var images = Object.keys(table);
+	  var randomImage = images[Math.floor(Math.random() * images.length)];
+	  
+	  var img = document.createElement('img');
+	  img.src = randomImage;
+	  img.style.position = 'absolute';
+	  img.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+	  img.style.top = Math.floor(Math.random() * window.innerHeight) + 'px';
+	  img.style.zIndex = 9999;
+	  img.style.cursor = 'pointer';
+	  
+	  document.body.appendChild(img);
+	  
+	  img.addEventListener('click', () => {
+		img.remove();
+		PlaySound('snd/clickb1.mp3',1)
+	  });	  
+}
+Game.Ad2=function()
+{
+	for (var i = 0; i < 5; i++) {
+		Game.Ad();
+	}
+}
+Game.PickRandom = function() {
+	var randomNumber = Math.floor(Math.random() * 2) + 1;
+	if (randomNumber === 1) {
+	  Game.Ad2();
+	} else {
+	  Game.BingChilling();
+	}
+}  
 Game.Launch=function()
 {
 	Game.mobile=0;
@@ -1292,7 +1330,7 @@ Game.Launch=function()
 		document.head.appendChild(css);
 	}
 
-	setInterval(Game.BingChilling, 30000);
+	setInterval(Game.PickRandom, 30000);
 	
 	Game.baseSeason='';//halloween, christmas, valentines, fools, easter
 	//automatic season detection (might not be 100% accurate)
