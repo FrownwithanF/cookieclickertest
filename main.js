@@ -12670,6 +12670,7 @@ Game.Launch=function()
 		
 		Game.Win=function(what)
 		{
+			Game.RandomSound();
 			if (typeof what==='string')
 			{
 				if (Game.Achievements[what])
