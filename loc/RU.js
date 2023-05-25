@@ -1,4 +1,4 @@
-AddLanguage('RU','soviet',{
+AddLanguage('RU','russian',{
 	"": {
 		"language": "RU",
 		"plural-forms": "nplurals=2;plural=(n!=1);"

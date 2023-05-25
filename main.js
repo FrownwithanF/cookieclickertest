@@ -1245,6 +1245,7 @@ if (!App && !Game.local && window.location.href.indexOf('orteil.dashnet.org')!=-
 	if (Game.resPath.substr(-1)!='/') Game.resPath+='/';
 }
 
+
 Game.Launch=function()
 {
 	Game.mobile=0;
