@@ -12877,9 +12877,9 @@ Game.Launch=function()
 		new Game.Achievement('Base 10',loc("Have at least <b>10 of the most expensive object, 20 of the second-most expensive, 30 of the next</b> and so on."),[23,12]);
 		
 		order=10000;
-		new Game.Achievement('Golden cookie',loc("Click a <b>golden cookie</b>."),[10,14]);
-		new Game.Achievement('Lucky cookie',loc("Click <b>%1</b>.",loc("%1 golden cookie",LBeautify(7))),[22,6]);
-		new Game.Achievement('A stroke of luck',loc("Click <b>%1</b>.",loc("%1 golden cookie",LBeautify(27))),[23,6]);
+		new Game.Achievement('Golden cookie',loc("Click a <b>golden cookie</b>."),[24,0]);
+		new Game.Achievement('Lucky cookie',loc("Click <b>%1</b>.",loc("%1 golden cookie",LBeautify(7))),[25,0]);
+		new Game.Achievement('A stroke of luck',loc("Click <b>%1</b>.",loc("%1 golden cookie",LBeautify(27))),[26,0]);
 		
 		order=30200;
 		new Game.Achievement('Cheated cookies taste awful',loc("Hack in some cookies."),[10,6]);Game.last.pool='shadow';

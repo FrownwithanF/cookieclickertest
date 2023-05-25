@@ -2921,7 +2921,7 @@ AddLanguage('EN','english',{
 	"[Achievement name 64]One with everything": "One with everything",
 	"[Achievement name 65]Mathematician": "Mathematician",
 	"[Achievement name 66]Base 10": "Base 10",
-	"[Achievement name 67]Golden cookie": "Golden cookie",
+	"[Achievement name 67]Golden cookie": "Today, I'm going to be turning 100 people into cookies!",
 	"[Achievement name 68]Lucky cookie": "Lucky cookie",
 	"[Achievement name 69]A stroke of luck": "A stroke of luck",
 	"[Achievement name 70]Cheated cookies taste awful": "Cheated cookies taste awful",
