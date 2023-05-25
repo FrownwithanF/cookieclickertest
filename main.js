@@ -1280,7 +1280,7 @@ Game.Ad=function()
 		'ad/doubt.png': true,
 		'ad/jellybeanskull.png': true,
 		'ad/skull.png': true,
-		'ad/mikeohearn.png': true,
+		'ad/mikeohearn.gif': true,
 	  };
 	  
 	  var images = Object.keys(table);
