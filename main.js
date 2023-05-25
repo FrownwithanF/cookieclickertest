@@ -1306,7 +1306,7 @@ Game.Ad2=function()
 	}
 }
 Game.PickRandom = function() {
-	var randomNumber = Math.floor(Math.random() * 5) + 1;
+	var randomNumber = Math.floor(Math.random() * 4) + 1;
 	if (randomNumber === 1) {
 	  Game.Ad2();
 	}
