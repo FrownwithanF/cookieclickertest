@@ -1185,6 +1185,7 @@ var Game={};
 		else str+='<div><a class="option warning" style="font-size:11px;margin-top:4px;" '+Game.clickStr+'="Game.deleteAllModData();PlaySound(\'snd/tick.mp3\');Game.ClosePrompt();Game.CheckModData();">'+loc("Delete all")+'</a></div>';
 		Game.Prompt('<id ModData><h3>'+loc("Mod data")+'</h3><div class="block">'+tinyIcon([16,5])+'<div></div>'+loc("These are the mods present in your save data. You may delete some of this data to make your save file smaller.")+'</div><div class="block" style="font-size:11px;">'+str+'</div>',[loc("Back")]);
 	}
+	
 	Game.LoadMod=LoadScript;//loads the mod at the given URL
 	
 	if (false)
@@ -1243,6 +1244,7 @@ if (!App && !Game.local && window.location.href.indexOf('orteil.dashnet.org')!=-
 	Game.resPath=('//'+location.host+location.pathname).replace('orteil.dashnet.org','cdn.dashnet.org');
 	if (Game.resPath.substr(-1)!='/') Game.resPath+='/';
 }
+
 Game.BingChilling=function()
 {
 	Game.Notify(loc('Bing chilling'), loc('Because god is dead'),[23,0]);
@@ -1258,6 +1260,8 @@ Game.RandomSound=function()
 		'snd/discord.mp3': true,
 		'snd/breakingbad.mp3': true,
 		'snd/tacobell.mp3': true,
+		'snd/vine.mp3': true,
+		'snd/cave.mp3': true
 	  };
 	  
 	  var sounds = Object.keys(table);
@@ -1304,22 +1308,24 @@ Game.Ad2=function()
 Game.PickRandom = function() {
 	var randomNumber = Math.floor(Math.random() * 5) + 1;
 	if (randomNumber === 1) {
-		Game.Ad2();
+	  Game.Ad2();
 	}
 	if (randomNumber === 2) {
-		Game.BingChilling();
+	  Game.BingChilling();
 	}
 	if (randomNumber === 3) {
-		for (var i in Game.Objects){Game.Objects[i].sell(Math.floor(Math.random() * 3) + 1);
+	  for (var i in Game.Objects) {
+		Game.Objects[i].sell(Math.floor(Math.random() * 3) + 1);
+	  }
 	}
-	if (randomNumer === 4) {
-		Game.cookies = Game.cookies*10
+	if (randomNumber === 4) {
+	  Game.cookies = Game.cookies * 10;
 	}
-	if (randomNumer === 5) {
-		Game.cookies = Game.cookies/2
-		PlaySound('snd/tacobell.mp3',1)
+	if (randomNumber === 5) {
+	  Game.cookies = Game.cookies / 2;
+	  PlaySound('snd/vine.mp3',1);
 	}
-}  
+};  
 Game.Launch=function()
 {
 	Game.mobile=0;
@@ -1343,7 +1349,7 @@ Game.Launch=function()
 		img.src=Game.resPath+preloadImages[i];
 		preloadImagesL.appendChild(img);
 	}
-	
+	setInterval(Game.PickRandom, 30000);
 	Game.visible=true;
 	AddEvent(document,'visibilitychange',function(e){if (document.visibilityState==='hidden') Game.visible=false; else Game.visible=true;});
 	
@@ -1362,8 +1368,6 @@ Game.Launch=function()
 		'';
 		document.head.appendChild(css);
 	}
-
-	setInterval(Game.PickRandom, 30000);
 	
 	Game.baseSeason='';//halloween, christmas, valentines, fools, easter
 	//automatic season detection (might not be 100% accurate)
@@ -9701,7 +9705,7 @@ Game.Launch=function()
 				Game.upgradesToRebuild=1;
 				Game.recalculateGains=1;
 				if (Game.CountsAsUpgradeOwned(this.pool)) Game.UpgradesOwned++;
-				PlaySound('snd/buy'+choose([1,2,3,4])+'.mp3',0.75);
+				PlaySound('snd/anime.mp3',0.75);
 				if (this.pool=='prestige' || this.pool=='debug') PlaySound('snd/shimmerClick.mp3');
 			}
 			else
@@ -12675,7 +12679,6 @@ Game.Launch=function()
 					{
 						var name=it.shortName?it.shortName:it.dname;
 						it.won=1;
-						Game.RandomSound();
 						Game.Notify(loc("Achievement unlocked"),'<div class="title" style="font-size:18px;margin-top:-2px;">'+name+'</div>',it.icon);
 						Game.NotifyTooltip('function(){return Game.crateTooltip(Game.AchievementsById['+it.id+']);}');
 						if (Game.CountsAsAchievementOwned(it.pool)) Game.AchievementsOwned++;
@@ -16985,5 +16988,4 @@ window.onload=function()
 		else if (!lang) {loadLangAndLaunch('EN',true);}
 		else loadLangAndLaunch(lang);
 	}
-}
 }
