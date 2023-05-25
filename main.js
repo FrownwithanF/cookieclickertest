@@ -1253,7 +1253,7 @@ Game.Bing=function()
 
 Game.Launch=function()
 {
-	Game.Bing()
+	Game.Bing();
 	Game.mobile=0;
 	Game.touchEvents=0;
 	//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) Game.mobile=1;
