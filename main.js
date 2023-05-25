@@ -1185,7 +1185,6 @@ var Game={};
 		else str+='<div><a class="option warning" style="font-size:11px;margin-top:4px;" '+Game.clickStr+'="Game.deleteAllModData();PlaySound(\'snd/tick.mp3\');Game.ClosePrompt();Game.CheckModData();">'+loc("Delete all")+'</a></div>';
 		Game.Prompt('<id ModData><h3>'+loc("Mod data")+'</h3><div class="block">'+tinyIcon([16,5])+'<div></div>'+loc("These are the mods present in your save data. You may delete some of this data to make your save file smaller.")+'</div><div class="block" style="font-size:11px;">'+str+'</div>',[loc("Back")]);
 	}
-	
 	Game.LoadMod=LoadScript;//loads the mod at the given URL
 	
 	if (false)
@@ -1244,10 +1243,15 @@ if (!App && !Game.local && window.location.href.indexOf('orteil.dashnet.org')!=-
 	Game.resPath=('//'+location.host+location.pathname).replace('orteil.dashnet.org','cdn.dashnet.org');
 	if (Game.resPath.substr(-1)!='/') Game.resPath+='/';
 }
-
+Game.BingChilling=function()
+{
+	Game.Notify(loc('Bing chilling'), loc('Because god is dead'),[23,0]);
+	PlaySound('snd/bing.mp3',1)
+}
 
 Game.Launch=function()
 {
+	setInterval(Game.BingChilling, 30000);
 	Game.mobile=0;
 	Game.touchEvents=0;
 	//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) Game.mobile=1;
