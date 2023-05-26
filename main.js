@@ -13814,7 +13814,7 @@ Game.Launch=function()
 		order=500000;
 		new Game.Achievement("1,000 Cookies See For The First Time",loc("Obtain <b>1,000 cookies</b>."),[24,0]);
 		new Game.Achievement("Today, I'm going to be selling 100 Grandmas!",loc("Sell <b>100 Grandmas</b>."),[25,0]);
-		new Game.Achievement('Beastianity',loc("Yes."),[26,0]);
+		new Game.Achievement('Beastianity',loc("Because yes."),[26,0]);
 		new Game.Achievement('Bing Chilling',loc('<b>Because god is dead.</b>'),[23,0]);
 		
 		
