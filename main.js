@@ -1327,7 +1327,7 @@ Game.PickRandom = function() {
 	  }
 	}
 	if (randomNumber === 4) {
-	Game.Earn(Game.cookies)
+	Game.Earn(Game.cookies*6)
 	PlaySound('snd/vine.mp3',1);
 	}
 };  
