@@ -5783,7 +5783,7 @@ Game.Launch=function()
 					Game.SparkleAt(me.x+48,me.y+48);
 					if (choice=='cookie storm drop')
 					{
-						if (Game.prefs.cookiesound) PlaySound('snd/mrbeast.mp3',0.75);
+						if (Game.prefs.cookiesound) PlaySound('snd/mrbeast.mp3',1);
 						else PlaySound('snd/click'+Math.floor(Math.random()*7+1)+'.mp3',0.75);
 					}
 					else PlaySound('snd/shimmerClick.mp3');
