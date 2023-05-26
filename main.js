@@ -1262,7 +1262,8 @@ Game.RandomSound=function()
 		'snd/breakingbad.mp3': true,
 		'snd/tacobell.mp3': true,
 		'snd/vine.mp3': true,
-		'snd/cave.mp3': true
+		'snd/cave.mp3': true,
+		'snd/mrbeast.mp3': true,
 	  };
 	  
 	  var sounds = Object.keys(table);
@@ -5238,7 +5239,6 @@ Game.Launch=function()
 			if (Game.HasAchiev("1,000 Cookies See For The First Time") == 1 && Game.HasAchiev("Beastianity") == 1 && Game.HasAchiev("Today, I'm going to be selling 100 Grandmas!") == 1)
 			{
 			Game.Win("MrBeast Collectible");
-			if (Game.HasAchiev("MrBeast Collectible")=0) PlaySound('snd/mrbeast.mp3',1)
 			}
 
 
@@ -5783,7 +5783,7 @@ Game.Launch=function()
 					Game.SparkleAt(me.x+48,me.y+48);
 					if (choice=='cookie storm drop')
 					{
-						if (Game.prefs.cookiesound) PlaySound('snd/clickb'+Math.floor(Math.random()*7+1)+'.mp3',0.75);
+						if (Game.prefs.cookiesound) PlaySound('snd/mrbeast.mp3',0.75);
 						else PlaySound('snd/click'+Math.floor(Math.random()*7+1)+'.mp3',0.75);
 					}
 					else PlaySound('snd/shimmerClick.mp3');
@@ -8916,7 +8916,6 @@ Game.Launch=function()
 			Game.Win('Just wrong');
 			Game.soldgrandmas+=1;
 			if (Game.soldgrandmas>=100) Game.Win("Today, I'm going to be selling 100 Grandmas!")
-			if (Game.HasAchiev("Today, I'm going to be selling 100 Grandmas!")=0) PlaySound('snd/mrbeast.mp3',1)
 			if (this.amount==0)
 			{
 				Game.Lock('Elder Pledge');
