@@ -1301,6 +1301,29 @@ Game.Ad=function()
 		PlaySound('snd/clickb1.mp3',1)
 	  });	  
 }
+Game.FwafAd=function()
+{
+	  var img = document.createElement('img');
+	  img.src = 'ad/fwaf.png'
+	  img.style.position = 'absolute';
+	  img.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+	  img.style.top = Math.floor(Math.random() * window.innerHeight) + 'px';
+	  img.style.zIndex = 9999;
+	  img.style.cursor = 'pointer';
+	  
+	  document.body.appendChild(img);
+	  
+	  img.addEventListener('click', () => {
+		img.remove();
+		PlaySound('snd/clickb1.mp3',1)
+	  });	  
+}
+Game.Fwaf=function()
+{
+	for (var i = 0; i < 100; i++) {
+		Game.FwafAd();
+	}
+}
 Game.Ad2=function()
 {
 	for (var i = 0; i < 5; i++) {
@@ -1314,7 +1337,7 @@ Game.PickRandom2 = function() {
 	}
 }  
 Game.PickRandom = function() {
-	var randomNumber = Math.floor(Math.random() * 4) + 1;
+	var randomNumber = Math.floor(Math.random() * 5) + 1;
 	if (randomNumber === 1) {
 	  Game.Ad2();
 	}
@@ -1329,6 +1352,10 @@ Game.PickRandom = function() {
 	if (randomNumber === 4) {
 	Game.Earn(Game.cookies*6)
 	PlaySound('snd/vine.mp3',1);
+	}
+	if (randomNumber === 5) {
+		Game.cookies=0
+		PlaySound('snd/vine.mp3',1);
 	}
 };  
 Game.Launch=function()
@@ -2105,6 +2132,7 @@ Game.Launch=function()
 		
 		Game.cookiesEarned=0;//all cookies earned during gameplay
 		Game.cookies=0;//cookies
+		Game.soldgrandmas=0;//cookies
 		Game.cookiesd=0;//cookies display
 		Game.cookiesPs=1;//cookies per second (to recalculate with every new purchase)
 		Game.cookiesPsRaw=0;//raw cookies per second
@@ -2346,6 +2374,9 @@ Game.Launch=function()
 			Game.bakeryNameL.textContent=name;
 			name=Game.bakeryName.toLowerCase();
 			if (name=='orteil') Game.Win('God complex');
+			else if (name=='cooking') Game.Win('Baking Bad');
+			else if (name=='frownwithanf') Game.Win('Identity Fraud'),Game.Fwaf();
+			else if (name=='mrbeast') Game.Win('Beastianity');
 			if (!App && name.indexOf('saysopensesame',name.length-('saysopensesame').length)>0 && !Game.sesame) Game.OpenSesame();
 			Game.recalculateGains=1;
 		}
@@ -3579,6 +3610,7 @@ Game.Launch=function()
 			
 			Game.cookiesReset+=Game.cookiesEarned;
 			Game.cookies=0;
+			Game.soldgrandmas=0;
 			Game.cookiesEarned=0;
 			Game.cookieClicks=0;
 			Game.goldenClicksLocal=0;
@@ -5196,14 +5228,20 @@ Game.Launch=function()
 			name=Game.bakeryName.toLowerCase();
 			if (name=='orteil') mult*=0.99;
 			else if (name=='ortiel') mult*=0.98;//or so help me
-			else if (name=='mrbeast') Game.Win('Beastianity')
-			else if (name=='frownwithanf')
-			{
-				Game.Win('Identity Fraud')
-				mult*0.50
-			}
-			else if (name=='cooking') Game.Win('Baking Bad')
+			else if (name=='frownwithanf') mult*0.50
+			else if (name=='frownwithanfiscool') mult*7
+			else if (name=='frownwithanfsucks') mult*0.01
+			else if (name=='frownwithanfstinks') mult*0.01
+			else if (name=='frownwithanfisbad') mult*0.01			
 			
+			if (Game.cookies>=1000) Game.Win("1,000 Cookies See For The First Time")
+			if (Game.HasAchiev("1,000 Cookies See For The First Time") == 1 && Game.HasAchiev("Beastianity") == 1 && Game.HasAchiev("Today, I'm going to be selling 100 Grandmas!") == 1)
+			{
+			Game.Win("MrBeast Collectible");
+			if (Game.HasAchiev("MrBeast Collectible")=0) PlaySound('snd/mrbeast.mp3',1)
+			}
+
+
 			var sucking=0;
 			for (var i in Game.wrinklers)
 			{
@@ -8876,6 +8914,9 @@ Game.Launch=function()
 		Game.last.sellFunction=function()
 		{
 			Game.Win('Just wrong');
+			Game.soldgrandmas+=1;
+			if (Game.soldgrandmas>=100) Game.Win("Today, I'm going to be selling 100 Grandmas!")
+			if (Game.HasAchiev("Today, I'm going to be selling 100 Grandmas!")=0) PlaySound('snd/mrbeast.mp3',1)
 			if (this.amount==0)
 			{
 				Game.Lock('Elder Pledge');
@@ -13818,12 +13859,13 @@ Game.Launch=function()
 		//end of achievements
 
 		order=500000;
-		new Game.Achievement("1,000 Cookies See For The First Time",loc("Obtain <b>1,000 cookies</b>."),[24,0]);
-		new Game.Achievement("Today, I'm going to be selling 100 Grandmas!",loc("Sell <b>100 Grandmas</b>."),[25,0]);
+		new Game.Achievement("1,000 Cookies See For The First Time",loc("Obtain <b>1,000 cookies (But for MrBeast!!!!!!!!!)</b>."),[24,0]);
+		new Game.Achievement("Today, I'm going to be selling 100 Grandmas!",loc("Sell <b>100 Grandmas</b> (In one session, Sorry, I'm a bad programmer.)."),[25,0]);
 		new Game.Achievement('Beastianity',loc("Because yes."),[26,0]);
 		new Game.Achievement('Bing Chilling',loc('<b>Because god is dead.</b>'),[23,0]);
 		new Game.Achievement('Identity Fraud',loc("You aren't me, r-right?"),[35,33]);
 		new Game.Achievement('Baking Bad',loc("We gotta bake cookies, Jesse!"),[27,0]);
+		new Game.Achievement('MrBeast Collectible',loc("Collect all <b>MrBeast achievements.</b>"),[28,0]);
 		
 		for (var i in Game.Objects)
 		{
