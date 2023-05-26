@@ -16859,8 +16859,7 @@ Game.Launch=function()
 		Game.catchupLogic=1;
 		
 		var time=Date.now();
-		
-		
+
 		//latency compensator
 		Game.accumulatedDelay+=((time-Game.time)-1000/Game.fps);
 		if (Game.prefs.timeout && time-Game.lastActivity>=1000*60*5)
