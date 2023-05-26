@@ -1281,7 +1281,6 @@ Game.Ad=function()
 		'ad/doubt.png': true,
 		'ad/jellybeanskull.png': true,
 		'ad/skull.png': true,
-		'ad/mikeohearn.gif': true,
 	  };
 	  
 	  var images = Object.keys(table);
@@ -5197,6 +5196,13 @@ Game.Launch=function()
 			name=Game.bakeryName.toLowerCase();
 			if (name=='orteil') mult*=0.99;
 			else if (name=='ortiel') mult*=0.98;//or so help me
+			else if (name=='mrbeast') Game.Win('Beastianity')
+			else if (name=='frownwithanf')
+			{
+				Game.Win('Identity Fraud')
+				mult*0.50
+			}
+			else if (name=='cooking') Game.Win('Baking Bad')
 			
 			var sucking=0;
 			for (var i in Game.wrinklers)
@@ -13816,7 +13822,8 @@ Game.Launch=function()
 		new Game.Achievement("Today, I'm going to be selling 100 Grandmas!",loc("Sell <b>100 Grandmas</b>."),[25,0]);
 		new Game.Achievement('Beastianity',loc("Because yes."),[26,0]);
 		new Game.Achievement('Bing Chilling',loc('<b>Because god is dead.</b>'),[23,0]);
-		
+		new Game.Achievement('Identity Fraud',loc("You aren't me, r-right?"),[35,33]);
+		new Game.Achievement('Baking Bad',loc("We gotta bake cookies, Jesse!"),[27,0]);
 		
 		for (var i in Game.Objects)
 		{
