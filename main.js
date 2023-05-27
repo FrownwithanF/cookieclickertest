@@ -1264,11 +1264,22 @@ Game.RandomSound=function()
 		'snd/vine.mp3': true,
 		'snd/cave.mp3': true,
 		'snd/mrbeast.mp3': true,
+		'snd/samsung.mp3': true,
+		'snd/twitter.mp3': true,
+		'snd/wow.mp3': true,
+		'snd/pipe.mp3': true,
+		'snd/memeexplode.mp3': true,
+		'snd/openthenor.mp3': true,
+		'snd/tada.mp3': true,
+		'snd/zelda.mp3': true,
 	  };
 	  
 	  var sounds = Object.keys(table);
 	  var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
 	  PlaySound(randomSound,1)
+	  if (randomSound === 'snd/pipe.mp3') {
+		Game.Win('Metal Pipe Collectible');
+	  }	  
 }
 Game.Ad=function()
 {
@@ -2133,7 +2144,7 @@ Game.Launch=function()
 		
 		Game.cookiesEarned=0;//all cookies earned during gameplay
 		Game.cookies=0;//cookies
-		Game.soldgrandmas=0;//cookies
+		Game.soldgrandmas=0;
 		Game.cookiesd=0;//cookies display
 		Game.cookiesPs=1;//cookies per second (to recalculate with every new purchase)
 		Game.cookiesPsRaw=0;//raw cookies per second
@@ -3612,6 +3623,7 @@ Game.Launch=function()
 			Game.cookiesReset+=Game.cookiesEarned;
 			Game.cookies=0;
 			Game.soldgrandmas=0;
+			
 			Game.cookiesEarned=0;
 			Game.cookieClicks=0;
 			Game.goldenClicksLocal=0;
@@ -5236,9 +5248,14 @@ Game.Launch=function()
 			else if (name=='frownwithanfisbad') mult*0.01			
 			
 			if (Game.cookies>=1000) Game.Win("1,000 Cookies See For The First Time")
+			if (Game.cookies>=69) Game.Win('69')
 			if (Game.HasAchiev("1,000 Cookies See For The First Time") == 1 && Game.HasAchiev("Beastianity") == 1 && Game.HasAchiev("Today, I'm going to be selling 100 Grandmas!") == 1)
 			{
 			Game.Win("MrBeast Collectible");
+			}
+			if (Game.HasAchiev("MrBeast Collectible") == 1 && Game.HasAchiev("Metal Pipe Collectible") == 1 && Game.HasAchiev("Baking Bad") == 1)
+			{
+			Game.Win("Try Hard Collector");
 			}
 
 
@@ -13863,8 +13880,11 @@ Game.Launch=function()
 		new Game.Achievement('Beastianity',loc("Because yes."),[26,0]);
 		new Game.Achievement('Bing Chilling',loc('<b>Because god is dead.</b>'),[23,0]);
 		new Game.Achievement('Identity Fraud',loc("You aren't me, r-right?"),[35,33]);
-		new Game.Achievement('Baking Bad',loc("We gotta bake cookies, Jesse!"),[27,0]);
+		new Game.Achievement('Baking Bad',loc("We gotta bake cookies, Jesse! (Collectible)"),[27,0]);
 		new Game.Achievement('MrBeast Collectible',loc("Collect all <b>MrBeast achievements.</b>"),[28,0]);
+		new Game.Achievement('69',loc("<b>Nice.</b>"),[5,10]);
+		new Game.Achievement('Metal Pipe Collectible',loc("Get 1 <b>*metal pipe falling sound effect*</b>(In one session, Sorry, I'm a bad programmer.)."),[29,0]);
+		new Game.Achievement('Try Hard Collector',loc("Have <b>every collectible.</b>"),[30,0]);
 		
 		for (var i in Game.Objects)
 		{
